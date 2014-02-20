@@ -13,5 +13,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-#ignore setupmail
-/config/initializers/setup_mail.rb
+
+# Ignore application configuration
+/config/application.yml
