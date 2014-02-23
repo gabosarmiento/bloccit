@@ -2,7 +2,9 @@
 
 A Reddit-style application to demonstrate foundation programming and web development skills.
 
-Made with my mentor at [Bloc](http://bloc.io)
+Made with my mentor (Aaron](https://github.com/abrongersma) at this awesome one-to-one program called [Bloc](http://bloc.io)
+
+Right in development 
 
 == Welcome to Rails
 
