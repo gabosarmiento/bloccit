@@ -96,6 +96,7 @@ GEM
     rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.1.1)
     sass (3.2.14)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -138,6 +139,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   rails (= 3.2.16)
+  redcarpet
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3

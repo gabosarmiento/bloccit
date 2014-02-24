@@ -32,6 +32,7 @@ gem 'devise'
 gem 'cancan'
 gem 'figaro'
 gem 'simple_form'
+gem 'redcarpet'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

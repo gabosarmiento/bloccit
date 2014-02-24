@@ -6,4 +6,13 @@ module ApplicationHelper
       content_tag :div, capture(&block), class: 'control-group'
     end
   end
+
+# this method takes a text string as an argument and returns it after rendering it with Markdown
+  def markdown(text)
+  renderer = Redcarpet::Render::HTML.new
+  extensions = {fenced_code_blocks: true,  autolink: true, tables: true, quote: true, footnotes: true}
+  redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+  (redcarpet.render text).html_safe
+end
+
 end
