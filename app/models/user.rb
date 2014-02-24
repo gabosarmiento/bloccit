@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   before_create :set_member
   mount_uploader :avatar, AvatarUploader 
-
+  
   ROLES = %w[member moderator admin]
   
   def role?(base_role)

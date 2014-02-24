@@ -10,11 +10,16 @@
     </div>
   <% end %>
   <%= control_group_tag(post.errors[:title]) do %>
-    <%= f.input :title, label: 'Your Post title',  :hint => "Add your post title here." %>
+    <%= f.label :title, 'Your Post title' %>
+    <%= f.input :title, label: false,  :hint => "Add your post title here." %>
   <% end %>
   <%= control_group_tag(post.errors[:body]) do %>
-    <%= f.input :body , label: 'Your Post content', input_html: {rows: 8},:hint => "Add your post here." %>
-    </div>
+    <%= f.label :body , 'Your Post content' %>
+    <%= f.input :body , label: false, input_html: {rows: 8},:hint => "Add your post here." %>
+  <% end %>
+  <%= control_group_tag(post.errors[:image]) do %>
+      <%= f.label :image, 'Your Image'%>
+      <%= f.input_field :image %>
   <% end %>
   <%= f.button :submit,'Save',:class => 'btn-primary' %>
   </div>
