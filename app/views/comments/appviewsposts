@@ -1,0 +1,6 @@
+<%= display_for [post, comment], html: { class: 'media' } do |f| %>
+  <% @post.comment.each do |comment| %>
+    <div class="media-body">
+      <p><%= @post.comment.body %></p>
+    </div>
+<% end %>
