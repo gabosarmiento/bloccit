@@ -24,15 +24,27 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 end
-
+#New Relic provides you with deep information about the performance of your web application as it runs in production
 gem 'newrelic_rpm'
 gem 'jquery-rails'
+#Faker is for helping to generate development data automatically.
 gem 'faker'
+#Devise is a full-featured authentication system that you can integrate with a Rails app.
 gem 'devise'
+#Cancan is a gem that allows you to authorize different users for different tasks in your app. 
 gem 'cancan'
+#Simple, Heroku-friendly Rails app
 gem 'figaro'
+#Rails forms made easy.Simple_Form aims to be as flexible as possible while helping you with powerful components to create your forms
 gem 'simple_form'
+#We'll be implementing the same library that Github uses for Markdown
 gem 'redcarpet'
+#Carrierwave is a classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
+gem 'carrierwave'
+#mini_magick is mini replacement for RMagick
+gem 'mini_magick'
+#We will be using the Amazon's popular S3 for storing uploaded files. We'll also be using a gem named Fog to support S3
+gem 'fog'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
