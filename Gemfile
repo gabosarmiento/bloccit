@@ -45,6 +45,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 #We will be using the Amazon's popular S3 for storing uploaded files. We'll also be using a gem named Fog to support S3
 gem 'fog'
+#Google presents it's search results using will_paginate gem
+gem 'will_paginate'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -3,7 +3,6 @@
 <head>
   <title>Bloccit</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -41,6 +40,8 @@
       <% end %>
       
     <%= yield %>
+  </div>
+  <%= javascript_include_tag "application" %>
 
 </body>
 </html>
