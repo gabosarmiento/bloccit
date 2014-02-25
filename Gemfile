@@ -47,6 +47,8 @@ gem 'mini_magick'
 gem 'fog'
 #Google presents it's search results using will_paginate gem
 gem 'will_paginate'
+#authentication framework that provides a standardized interface to many different authentication providers such as Facebook, OpenID, and even traditional username and password
+gem 'omniauth-facebook'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
