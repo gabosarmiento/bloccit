@@ -22,13 +22,26 @@ class VotesController < ApplicationController
     # Look for an existing vote by this person so we don't create multiple
     @vote = @post.votes.where(user_id: current_user.id).first
   end
+  #Original update_vote method
+  #def update_vote(new_value)
+  #  if @vote # if it exists, update it
+  #    @vote.update_attribute(:value, new_value)
+  #  else # create it
+  #    @vote = current_user.votes.create(value: new_value, post: @post)
+  # end
+  #end
 
+  #if the user regrets his decision it shouldn't take into account his vote.
   def update_vote(new_value)
-    if @vote # if it exists, update it
+    if @vote && @vote.value == new_value # if it exists, update it
+      @vote.update_attribute(:value, 0)
+      # 
+    elsif @vote && @vote.value != new_value 
       @vote.update_attribute(:value, new_value)
-    else # create it
+    elsif
       @vote = current_user.votes.create(value: new_value, post: @post)
     end
   end
+
 
 end
