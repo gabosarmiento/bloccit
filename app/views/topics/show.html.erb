@@ -9,6 +9,7 @@
     <p class="lead"><%= @topic.description %></p>
     <% @posts.each do |post| %>
       <div class="media">
+        <%= render partial: 'votes/voter', locals: { topic: @topic, post: post } %>
         <%= link_to [@topic, post], class: 'pull-left' do %>
         <%= image_tag(post.image.thumb.url) if post.image? %>
         <% end %>

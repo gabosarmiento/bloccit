@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :posts, dependent: :destroy 
   has_many :comments, dependent: :destroy 
+  has_many :votes, dependent: :destroy
 
   before_create :set_member
   mount_uploader :avatar, AvatarUploader 
