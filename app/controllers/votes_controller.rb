@@ -32,16 +32,16 @@ class VotesController < ApplicationController
   #end
 
   #if the user regrets his decision it shouldn't take into account his vote.
+  # My analysis was made base on the fact that @vote.vale is either empty, 1 or -1.
   def update_vote(new_value)
-    if @vote && @vote.value == new_value # if it exists, update it
+    if @vote && @vote.value == new_value # if it exists, and is equal do nothing
       @vote.update_attribute(:value, 0)
-      # 
-    elsif @vote && @vote.value != new_value 
+    elsif @vote && @vote.value != new_value # if it exists, and is equal do nothing
       @vote.update_attribute(:value, new_value)
-    elsif
-      @vote = current_user.votes.create(value: new_value, post: @post)
+    elsif #create it just as it was in the original method
+      @vote = current_user.votes.create(value: new_value, post: @post) 
     end
   end
-
+  
 
 end

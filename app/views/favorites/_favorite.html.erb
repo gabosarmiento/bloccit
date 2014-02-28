@@ -1,0 +1,13 @@
+<% if can? :create, Favorite %>
+<div class="favorite">
+    <% if favorite = current_user.favorited(post) %>
+      <%= link_to [topic, post, favorite], class: 'btn btn-small', method: :delete do %>
+        <i class="glyphicon glyphicon-star"> </i>&nbsp; Favorited
+      <% end %>
+    <% else %>
+      <%= link_to [topic, post, Favorite.new], class: 'btn btn-small', method: :post do %>
+        <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfavorited
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
