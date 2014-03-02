@@ -1,4 +1,4 @@
-<%= simple_form_for [topic, post, comment], htm: { class: 'form-horizontal' } do |f| %>
+<%= simple_form_for [topic, post, comment], html: { class: 'form-horizontal' }, remote: true do |f| %>
   <% if comment.errors.any? %>
     <div class="alert alert-block">
       <h4>There are <%= pluralize(comment.errors.count, "error") %> errors.</h4>

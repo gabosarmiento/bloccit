@@ -14,9 +14,9 @@
      <hr/>
  
      <h2 class='js-comments-count'><%= pluralize(@comments.count, 'Comment') %></h2> 
-     
+     <div class="js-comments">
      <%= render partial: 'comments/comment', collection: @comments %>
-     
+     </div>
      <% if can? :create, Comment %>
        <hr/>
 
