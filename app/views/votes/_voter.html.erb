@@ -1,7 +1,7 @@
 <% if can? :create, Vote %>
 <div class="vote-arrows pull-left">
-  <div><%= link_to " ", topic_post_up_vote_path(topic, post), class: 'glyphicon glyphicon-chevron-up' %></div>
+  <div><%= link_to " ", topic_post_up_vote_path(topic, post), class: "glyphicon glyphicon-chevron-up #{(current_user.voted(post) && current_user.voted(post).up_vote?) ? 'voted-up' : '' } " %></div>
   <div><strong><%= post.points %></strong></div>
-  <div><%= link_to " ", topic_post_down_vote_path(topic, post), class: 'glyphicon glyphicon-chevron-down' %></div>
+  <div><%= link_to " ", topic_post_down_vote_path(topic, post), class: "glyphicon glyphicon-chevron-down #{(current_user.voted(post) && current_user.voted(post).down_vote?) ? 'voted-down' : '' }" %></div>
 </div>
 <% end %>

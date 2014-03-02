@@ -41,6 +41,11 @@ class User < ActiveRecord::Base
   def favorited(post)
     self.favorites.where(post_id: post.id).first
   end
+  
+  #This method takes a post object and determines if the user has any votes on that post object.
+  def voted(post)
+    self.votes.where(post_id: post.id).first
+  end
 
   private
 
