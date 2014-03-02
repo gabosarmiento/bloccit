@@ -1,8 +1,8 @@
 require 'faker'
 
-# Create 35 topics
+# Create 15 topics
 topics = []
-35.times do
+15.times do
   topics << Topic.create(
     name: Faker::Lorem.words(rand(1..10)).join(" "), 
     description: Faker::Lorem.paragraph(rand(1..4))
@@ -41,7 +41,7 @@ end
 
 post_count = Post.count
 User.all.each do |user|
-  rand(10..30).times do
+  rand(30..50).times do
     p = Post.find(rand(1..post_count))
     c = user.comments.create(
       body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"),

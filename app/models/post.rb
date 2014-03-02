@@ -5,22 +5,19 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   attr_accessible :body, :title, :topic, :image 
-
+  
+  mount_uploader :image, ImageUploader
   default_scope order('rank DESC')
   scope :visible_to, lambda { |user| user ? scoped : joins(:topic).where('topics.public' => true) }
-
-  default_scope order('created_at DESC')
   
-  after_create :create_vote
-
-  mount_uploader :image, ImageUploader
-
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
   validates :topic, presence: true
   validates :user, presence: true 
   #validates :image, format: { with: %r{\.gif|jpg|png}i, message: 'must be a url for gif, jpg, or png image.' } 
 
+  after_create :create_vote
+  
   def up_votes
     self.votes.where(value: 1).count
   end
