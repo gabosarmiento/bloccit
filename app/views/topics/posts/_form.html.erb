@@ -1,0 +1,26 @@
+<%= simple_form_for [topic, post], defaults: { input_html:{ class: 'form-horizontal' }} do |f| %>
+  <% if post.errors.any? %>
+    <div class="alert alert-block">
+      <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
+      <ul>
+        <% post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= control_group_tag(post.errors[:title]) do %>
+    <%= f.label :title, 'Your Post title' %>
+    <%= f.input :title, label: false,  :hint => "Add your post title here." %>
+  <% end %>
+  <%= control_group_tag(post.errors[:body]) do %>
+    <%= f.label :body , 'Your Post content' %>
+    <%= f.input :body , label: false, input_html: {rows: 8},:hint => "Add your post here." %>
+  <% end %>
+  <%= control_group_tag(post.errors[:image]) do %>
+      <%= f.label :image, 'Your Image'%>
+      <%= f.input_field :image %>
+  <% end %>
+  <%= f.button :submit,'Save',:class => 'btn-primary' %>
+  </div>
+<% end %>

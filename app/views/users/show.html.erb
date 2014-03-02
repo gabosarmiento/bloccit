@@ -3,7 +3,7 @@
     <div class="media">
       <div class="jumbotron">
       <% if @user.avatar? %>
-        <%= image_tag @user.avatar.url, class: 'pull-left' %>
+        <%= image_tag @user.avatar.preview.url, class: 'pull-left' %>
       <% end %>
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %></h2>
