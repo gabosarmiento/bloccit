@@ -13,7 +13,7 @@
      
      <hr/>
  
-     <h2><%= pluralize(@comments.count, 'Comment') %></h2> 
+     <h2 class='js-comments-count'><%= pluralize(@comments.count, 'Comment') %></h2> 
      
      <%= render partial: 'comments/comment', collection: @comments %>
      
