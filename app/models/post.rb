@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   attr_accessible :body, :title, :topic, :image 
 
   default_scope order('rank DESC')
+  scope :visible_to, lambda { |user| user ? scoped : joins(:topic).where('topics.public' => true) }
+
   default_scope order('created_at DESC')
   
   after_create :create_vote

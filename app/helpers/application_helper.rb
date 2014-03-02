@@ -26,4 +26,10 @@ module ApplicationHelper
     super *[collection_or_options, options].compact
   end
 
+#This method will return exactly what we need for our _comment partial - an array of topic, post and comment objects
+  def comment_url_helper(comment)
+    post = comment.post
+    topic = post.topic
+    [topic, post, comment]
+  end
 end

@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="span12">
+    <div class="media">
+      <div class="jumbotron">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url, class: 'pull-left' %>
+      <% end %>
+      <div class="media-body">
+        <h2 class="media-heading"><%= @user.name %></h2>
+        <small>
+          <%= pluralize(@user.posts.count, 'post') %>,
+          <%= pluralize(@user.comments.count, 'comment') %>
+        </small>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#posts" data-toggle="tab"><span class="badge pull-right"><%= @user.posts.count %></span>Posts </a></li>
+      <li><a href="#comments" data-toggle="tab"><span class="badge pull-right"><%= @user.comments.count %></span>Comments </a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="posts">
+        <div id="columns">
+            <%= render @posts %>
+        </div>
+            <%= will_paginate @posts %>
+    </div>
+      <div class="tab-pane" id="comments">
+        <%= render @comments %>
+      </div>
+    </div>
+  </div>
+</div>
