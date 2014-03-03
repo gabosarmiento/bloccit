@@ -1,23 +1,22 @@
 <h1><%= @topic.name %></h1>
 
-<% if can? :update, @topic %>
-  <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-primary btn-mini' %>
+<% if can? :create, Post %>
+  <%= link_to " Submit_a_new_link", new_topic_post_path(@topic), class: 'btn btn-large btn-info glyphicon glyphicon-plus' %>
 <% end %>
-
+<% if can? :update, @topic %>
+  <%= link_to " Edit", edit_topic_path, class: 'btn btn-primary btn-mini glyphicon glyphicon-edit' %>
+<% end %>
+<% if can? :destroy, Topic %>
+<%= link_to " Delete", @topic, method: :delete, class: 'btn btn-large btn-danger glyphicon glyphicon-trash', confirm: 'Are you sure you want to delete this topic?' %>
+<% end %>
 <div class="row">
   <div class="span8">
+  </br>
     <p class="lead"><%= @topic.description %></p>
       <div id="columns">
       <%= render @posts %>
       </div>
       <%= will_paginate @posts %>
   </div>
-  <div class="span4">
-    <% if can? :create, Post %>
-      <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-large btn-block btn-info' %>
-    <% end %>
-    <% if can? :destroy, Topic %>
-    <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this topic?' %> 
-    <% end %>
-  </div>
+  
 </div>
