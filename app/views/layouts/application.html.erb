@@ -1,56 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Bloccit</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rails Demo App">
+    <meta name="author" content="Gabosarmiento">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <%= csrf_meta_tags %>
+    <title>G-BLOCCIT</title>
+
+  <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag 'bootstrap' %>
+
+    <!-- Custom styles for this template -->
+    <%= stylesheet_link_tag 'main' %>
+
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+  
+
+  <!-- Fonts from Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-
+  <%= render "layouts/nav" %>
+  <% if current_page?(root_path)%>
+    <%= render "layouts/headerhome" %>
+  <% end %>
   <div class="container">
-      <ul class="nav nav-tabs">
-        <li><%= link_to "Bloccit", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Topics", topics_path %></li>
-        <li><%= link_to "Popular", posts_path %></li>
-        <li><%= link_to "Users", users_path %></li>
-        <div class="pull-right user-info">
-          <% if current_user %>
-            <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
-            Hello <%= link_to (current_user.name || current_user.email), current_user %>!
-            <%= link_to edit_user_registration_path, class: 'btn btn-mini' do %>
-             <i class="glyphicon glyphicon-cog"> </i>
-           <% end %>
-           <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-mini' do %>
-             <i class="glyphicon glyphicon-off"> </i>
-           <% end %>
-          <% else %>
-            <%= link_to "Sign In", new_user_session_path %> or 
-             <%= link_to "Sign Up", new_user_registration_path %>
-          <% end %>
-        </div>
-      </ul>
+     
+     <%= render "layouts/messages" %> 
       
-      <% if flash[:notice] %>
-        <div class="alert alert-success">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= flash[:notice] %>
-        </div>
-      <% elsif flash[:error] %>
-        <div class="alert alert-error">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= flash[:error] %>
-        </div>
-      <% elsif flash[:alert] %>
-        <div class="alert">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= flash[:alert] %>
-        </div>
-      <% end %>
       
-    <%= yield %>
+  <%= yield %>  
   </div>
   
 <%= javascript_include_tag "application" %>
+<%= javascript_include_tag "bootstrap" %>
 </body>
 </html>
