@@ -17,20 +17,20 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <div class="pull-right user-info">
-        <% if current_user %>
-          <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
-          Hello <%= link_to (current_user.name || current_user.email), current_user %>!
-          <%= link_to edit_user_registration_path, class: 'btn btn-mini' do %>
-           <i class="glyphicon glyphicon-cog"> </i>
-         <% end %>
-         <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-mini' do %>
-           <i class="glyphicon glyphicon-off"> </i>
-         <% end %>
-        <% else %>
-          <a><%= link_to "Already a member?", new_user_session_path %></a>
-        <% end %>
-      </div>
+            <% if current_user %>
+              <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
+              Hello <%= link_to (current_user.name || current_user.email), current_user %>!
+              <%= link_to edit_user_registration_path, class: 'btn btn-mini' do %>
+               <i class="glyphicon glyphicon-cog"> </i>
+             <% end %>
+             <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-mini' do %>
+               <i class="glyphicon glyphicon-off"> </i>
+             <% end %>
+            <% else %>
+              <a><%= link_to "Already a member?", new_user_session_path %></a>
+            <% end %>
+          </div>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
-  </div>
+</div>
