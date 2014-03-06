@@ -16,6 +16,5 @@ Bloccit::Application.routes.draw do
   end
 
   match "about" => 'welcome#about', via: :get
-  match "test" => 'welcome#test', via: :get
   root :to => 'welcome#index'
 end
