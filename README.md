@@ -8,5 +8,4 @@ Made with my mentor [Aaron](https://github.com/abrongersma) at this awesome one-
 
 Copy the "config/application.example.yml" file and remove "example". Your application.yml should contain your sensitive credentials. It should be included in .gitnore as well.
 
-###Under Construction
-http://g-bloccit.herokuapp.com/
+#### [Visit my site](http://g-bloccit.herokuapp.com/)
